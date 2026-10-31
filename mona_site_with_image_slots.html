@@ -1,0 +1,1006 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إلى مونا، أميرتي ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pink: #f4a6bd;
+  --deep: #a52d60;
+  --dark: #321b2b;
+  --cream: #fff5f6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: #fff5f7;
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+button, input { font-family: inherit; }
+
+button { cursor: pointer; }
+
+/* شاشة الدخول */
+
+#lockScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background:
+    radial-gradient(circle at 20% 20%,#f9c9d8,transparent 40%),
+    radial-gradient(circle at 80% 80%,#d9b4e5,transparent 40%),
+    linear-gradient(135deg,#321b2b,#69304f);
+  transition: opacity .8s, visibility .8s;
+}
+
+#lockScreen.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.lock-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 42px 28px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.3);
+  backdrop-filter: blur(15px);
+  text-align: center;
+  color: white;
+  box-shadow: 0 20px 70px #0005;
+}
+
+.lock-heart {
+  font-size: 65px;
+  animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+  50% { transform: scale(1.16); }
+}
+
+.lock-card h1 {
+  font-size: 32px;
+  margin: 15px 0 5px;
+}
+
+.lock-card p {
+  color: #ffe2ed;
+  line-height: 2;
+  font-size: 14px;
+}
+
+.lock-card input {
+  width: 100%;
+  padding: 15px;
+  margin-top: 25px;
+  border-radius: 14px;
+  border: 1px solid #ffffff66;
+  background: #ffffff18;
+  color: white;
+  text-align: center;
+  font-size: 23px;
+  letter-spacing: 5px;
+  outline: none;
+}
+
+.lock-card input::placeholder {
+  color: #ffffff99;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.main-btn {
+  width: 100%;
+  margin-top: 18px;
+  padding: 14px;
+  background: linear-gradient(135deg,#f7a5c0,#d65b91);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 17px;
+  font-weight: 800;
+  box-shadow: 0 8px 25px #d65b9150;
+  transition: .3s;
+}
+
+.main-btn:hover {
+  transform: translateY(-3px);
+}
+
+#error {
+  color: #ffd1df;
+  margin-top: 12px;
+  font-size: 13px;
+  min-height: 24px;
+}
+
+/* الموقع */
+
+#website {
+  display: none;
+}
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 35px 20px;
+  overflow: hidden;
+  background:
+    linear-gradient(#30182788,#30182799),
+    url('images/background.jpg') center/cover,
+    linear-gradient(135deg,#8e4569,#d78bab);
+  color: white;
+}
+
+.hero-content {
+  max-width: 750px;
+  z-index: 2;
+}
+
+.small-title {
+  font-size: 15px;
+  letter-spacing: 3px;
+  color: #ffd5e4;
+}
+
+.hero h1 {
+  font-size: clamp(42px,8vw,85px);
+  font-weight: 900;
+  margin: 18px 0;
+  text-shadow: 0 5px 25px #0005;
+}
+
+.hero h1 span { color: #ffb9d1; }
+
+.hero p {
+  font-size: clamp(16px,3vw,21px);
+  line-height: 2.2;
+  color: #fff0f5;
+}
+
+.scroll-btn {
+  margin-top: 35px;
+  padding: 14px 35px;
+  border: 1px solid #ffffff99;
+  background: #ffffff20;
+  color: white;
+  border-radius: 40px;
+  font-size: 16px;
+  backdrop-filter: blur(10px);
+  transition: .3s;
+}
+
+.scroll-btn:hover {
+  background: white;
+  color: #a52d60;
+}
+
+.floating {
+  position: absolute;
+  bottom: -40px;
+  color: #ffffff60;
+  animation: float 9s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* الرسالة */
+
+.section {
+  padding: 85px 7%;
+  text-align: center;
+}
+
+.section-title {
+  font-size: clamp(27px,5vw,42px);
+  color: var(--deep);
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  color: #987184;
+  font-size: 15px;
+}
+
+.letter {
+  max-width: 850px;
+  margin: 35px auto;
+  padding: 45px 30px;
+  border-radius: 25px;
+  background: white;
+  box-shadow: 0 15px 50px #9b416019;
+  border: 1px solid #f8dbe5;
+  line-height: 2.5;
+  font-size: 18px;
+  position: relative;
+}
+
+.letter .decoration {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.letter strong {
+  color: var(--deep);
+}
+
+/* الصور */
+
+.gallery-section {
+  background: linear-gradient(180deg,#fff5f7,#fbe4ed);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 22px;
+  max-width: 1250px;
+  margin: 45px auto 0;
+}
+
+.photo-card {
+  position: relative;
+  padding: 9px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px #813b561c;
+  overflow: hidden;
+  transition: .4s;
+  cursor: pointer;
+}
+
+.photo-card:hover {
+  transform: translateY(-9px) rotate(-1deg);
+  box-shadow: 0 15px 35px #813b5630;
+}
+
+.photo-card img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  background: #f3d8e3;
+}
+
+.photo-card .caption {
+  padding: 13px 5px 7px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #98466a;
+}
+
+/* أسباب حبك */
+
+.reasons {
+  background: #fff;
+}
+
+.reason-grid {
+  max-width: 950px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+
+.reason {
+  padding: 25px 15px;
+  background: #fff4f7;
+  border: 1px solid #f5d5e1;
+  border-radius: 20px;
+  transition: .3s;
+}
+
+.reason:hover {
+  transform: translateY(-5px);
+}
+
+.reason span {
+  font-size: 35px;
+}
+
+.reason h3 {
+  color: #a52d60;
+  margin-top: 10px;
+  font-size: 17px;
+}
+
+/* النهاية */
+
+.final {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 65px 20px;
+  background: linear-gradient(135deg,#57253f,#a64e76);
+  color: white;
+}
+
+.final h2 {
+  font-size: clamp(30px,6vw,55px);
+  margin-bottom: 20px;
+}
+
+.final p {
+  max-width: 650px;
+  line-height: 2.3;
+  font-size: 18px;
+  color: #ffe8f0;
+}
+
+.final button {
+  margin-top: 30px;
+  padding: 15px 35px;
+  background: #fff;
+  color: #a52d60;
+  border: none;
+  border-radius: 40px;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+footer {
+  background: #321b2b;
+  text-align: center;
+  padding: 22px;
+  color: #e8bdcf;
+  font-size: 13px;
+}
+
+/* تكبير الصور */
+
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: #160c14ed;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+#lightbox img {
+  max-width: 95%;
+  max-height: 85vh;
+  border-radius: 15px;
+  box-shadow: 0 10px 50px #0008;
+}
+
+#close {
+  position: absolute;
+  top: 15px;
+  left: 25px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+@media(max-width:900px) {
+  .gallery { grid-template-columns: repeat(3,1fr); }
+}
+
+@media(max-width:600px) {
+  .gallery { grid-template-columns: repeat(2,1fr); gap: 13px; }
+  .reason-grid { grid-template-columns: repeat(2,1fr); }
+  .section { padding: 65px 5%; }
+  .letter { padding: 30px 20px; font-size: 16px; }
+}
+
+@media(max-width:360px) {
+  .reason-grid { grid-template-columns: 1fr; }
+}
+
+
+/* تحسينات إضافية للموبايل */
+img {
+  max-width: 100%;
+}
+
+button, input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 600px) {
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .hero {
+    min-height: 100svh;
+    min-height: 100vh;
+    padding: 28px 18px;
+    background-position: center;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .small-title {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 13vw, 64px);
+    line-height: 1.35;
+    margin: 14px 0;
+  }
+
+  .hero p {
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  .scroll-btn {
+    min-height: 48px;
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+
+  .section {
+    padding: 55px 16px;
+  }
+
+  .section-title {
+    font-size: clamp(25px, 7vw, 34px);
+    line-height: 1.6;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .letter {
+    margin: 24px auto 0;
+    padding: 25px 18px;
+    border-radius: 20px;
+    font-size: 15px;
+    line-height: 2.35;
+    overflow-wrap: anywhere;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .photo-card {
+    min-width: 0;
+    padding: 6px;
+    border-radius: 14px;
+  }
+
+  .photo-card img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .photo-card .caption {
+    padding: 9px 3px 5px;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .reason-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+    margin-top: 28px;
+  }
+
+  .reason {
+    min-width: 0;
+    padding: 18px 10px;
+    border-radius: 16px;
+  }
+
+  .reason span {
+    font-size: 29px;
+  }
+
+  .reason h3 {
+    font-size: 15px;
+  }
+
+  .reason p {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .final {
+    min-height: 65vh;
+    padding: 55px 20px;
+  }
+
+  .final h2 {
+    font-size: clamp(27px, 8vw, 38px);
+    line-height: 1.6;
+  }
+
+  .final p {
+    font-size: 15px;
+    line-height: 2.2;
+  }
+
+  .final button {
+    min-height: 48px;
+    padding: 12px 27px;
+    font-size: 15px;
+  }
+
+  .lock-card {
+    max-width: 390px;
+    padding: 32px 20px;
+    border-radius: 24px;
+  }
+
+  .lock-card h1 {
+    font-size: 28px;
+  }
+
+  .lock-card input {
+    min-height: 52px;
+    font-size: 21px;
+    letter-spacing: 3px;
+  }
+
+  .main-btn {
+    min-height: 50px;
+  }
+
+  #lightbox {
+    padding: 12px;
+  }
+
+  #lightbox img {
+    max-width: 100%;
+    max-height: 78vh;
+    object-fit: contain;
+  }
+
+  #close {
+    top: 8px;
+    left: 15px;
+    padding: 8px;
+  }
+
+  footer {
+    padding: 18px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .gallery {
+    gap: 9px;
+  }
+
+  .photo-card .caption {
+    font-size: 11px;
+  }
+
+  .reason-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .lock-card {
+    padding: 28px 16px;
+  }
+}
+
+/* احترام إعداد تقليل الحركة في الهاتف */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- شاشة الباسورد -->
+
+<div id="lockScreen">
+  <div class="lock-card">
+    <div class="lock-heart">❤️</div>
+    <p>رسالة خاصة لشخص مميز جداً</p>
+    <h1>أهلاً يا مونا</h1>
+    <p>في مفاجأة صغيرة مستنياكي...</p>
+
+    <form id="loginForm">
+      <input
+        type="password"
+        id="password"
+        placeholder="اكتبي الباسورد هنا"
+        inputmode="numeric"
+        autocomplete="off"
+        required
+      >
+      <button class="main-btn" type="submit">
+        افتحي هديتك ❤️
+      </button>
+    </form>
+
+    <div id="error"></div>
+  </div>
+</div>
+
+<!-- بداية الموقع -->
+
+<div id="website">
+
+<header class="hero">
+
+  <div class="hero-content">
+    <div class="small-title">A LITTLE GIFT FOR MY FAVORITE PERSON</div>
+
+    <h1>يا <span>مونا</span> ❤️</h1>
+
+    <p>
+      مش عارف أبدأ منين، بس عارف إنك تستاهلي
+      حاجة حلوة تشبه قلبك...
+      وعشان كده عملتلك المكان ده.
+    </p>
+
+    <button class="scroll-btn"
+      onclick="document.getElementById('letter').scrollIntoView({behavior:'smooth'})">
+      عندي كلام عايز أقولهولك ↓
+    </button>
+  </div>
+
+</header>
+
+<!-- رسالة الاعتذار -->
+
+<section class="section" id="letter">
+
+  <h2 class="section-title">رسالة من قلبي ليكي 💌</h2>
+  <p class="subtitle">اقري الكلام ده براحتك يا مونا</p>
+
+  <div class="letter">
+    <div class="decoration">💗</div>
+
+    يا مونا...
+
+    <br>
+
+    أنا عارف إنك زعلانة، ومش هحاول أقلل من زعلك
+    أو أقولك إن الموضوع مش مستاهل.
+
+    <br>
+
+    يمكن أنا غلطت، ويمكن ماعرفتش أوصلك قد إيه
+    إنتِ مهمة عندي، بس ده مش معناه إن مشاعرك
+    مش فارقة معايا.
+
+    <br>
+
+    أنا مش عامل الموقع ده علشان أغيّر زعلك
+    بكام صورة وكلمتين، أنا عامله علشان أقولك
+    إن وجودك في حياتي له قيمة كبيرة.
+
+    <br>
+
+    <strong>
+      أنا آسف على كل لحظة كنت سبب فيها في زعلك،
+      ونفسي أكون أحسن ليكي بالأفعال قبل الكلام.
+    </strong>
+
+    <br>
+
+    بحبك يا أجمل مونا في الدنيا ❤️
+  </div>
+
+</section>
+
+<!-- معرض الصور -->
+
+<section class="section gallery-section">
+
+  <h2 class="section-title">20 صورة.. وحكاية ملهاش آخر 📸</h2>
+  <p class="subtitle">
+    كل صورة ليها مكان في قلبي، وكل ذكرى فيها جزء منك.
+  </p>
+
+  <div class="gallery" id="gallery"></div>
+
+</section>
+
+<!-- أسباب الحب -->
+
+<section class="section reasons">
+
+  <h2 class="section-title">عارفة إيه اللي بحبه فيكي؟</h2>
+  <p class="subtitle">حاجات كتير، ودي شوية منهم ❤️</p>
+
+  <div class="reason-grid">
+
+    <div class="reason">
+      <span>🥹</span>
+      <h3>ضحكتك</h3>
+      <p>اللي بتغير شكل يومي كله.</p>
+    </div>
+
+    <div class="reason">
+      <span>💕</span>
+      <h3>قلبك</h3>
+      <p>اللي فيه تفاصيل جميلة.</p>
+    </div>
+
+    <div class="reason">
+      <span>🌸</span>
+      <h3>وجودك</h3>
+      <p>اللي بيخلّي حاجات كتير أحلى.</p>
+    </div>
+
+    <div class="reason">
+      <span>✨</span>
+      <h3>تفاصيلك</h3>
+      <p>حتى الحاجات الصغيرة اللي محدش بياخد باله منها.</p>
+    </div>
+
+    <div class="reason">
+      <span>🫶</span>
+      <h3>طيبتك</h3>
+      <p>والطريقة اللي بتخليكي مميزة.</p>
+    </div>
+
+    <div class="reason">
+      <span>❤️</span>
+      <h3>إنك إنتِ</h3>
+      <p>مش محتاجة تكوني حد تاني.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- النهاية -->
+
+<section class="final">
+
+  <h2>لسه عندي حكايات كتير معاكي ❤️</h2>
+
+  <p>
+    مش عايزك تفتكري إنك مجرد شخص في حياتي،
+    إنتِ شخص ليه مكانة خاصة جداً.
+    <br>
+    خدي وقتك، وأنا مستعد أسمعك وأصلح اللي ضايقك.
+    <br>
+    أتمنى أشوف ضحكتك تاني يا منى.
+  </p>
+
+  <button onclick="showLove()">
+    دوسي هنا يا أميرتي 💗
+  </button>
+
+  <p id="lastMessage" style="margin-top:25px;font-weight:bold"></p>
+
+</section>
+
+<footer>
+  Made with ❤️ for Mona | مونا
+</footer>
+
+</div>
+
+<!-- عرض الصورة بحجم كبير -->
+
+<div id="lightbox" onclick="closeImage()">
+  <span id="close">×</span>
+  <img id="largeImage" src="" alt="صورة من ذكرياتنا">
+</div>
+
+<script>
+
+// الباسورد
+const correctPassword = "10122025";
+
+document.getElementById("loginForm").addEventListener("submit",function(e){
+  e.preventDefault();
+
+  const entered = document.getElementById("password").value;
+
+  if(entered === correctPassword){
+
+    document.getElementById("lockScreen").classList.add("hide");
+
+    document.getElementById("website").style.display = "block";
+
+    setTimeout(() => {
+      document.getElementById("lockScreen").style.display = "none";
+    },900);
+
+    startHearts();
+
+  } else {
+
+    document.getElementById("error").textContent =
+      "الباسورد مش صح يا مونا، حاولي تاني ❤️";
+
+    document.getElementById("password").value = "";
+
+  }
+});
+
+// الصور العشرين
+
+const captions = [
+  "أول ذكرى ❤️",
+  "ضحكتك اللي بحبها",
+  "يوم مميز",
+  "أحلى صدفة",
+  "تفاصيل صغيرة",
+  "لحظة جميلة",
+  "أجمل ابتسامة",
+  "حكايتنا",
+  "ذكرياتنا",
+  "يا أجمل مونا",
+  "وقت حلو",
+  "لحظة مش هنساها",
+  "كل حاجة حلوة",
+  "إنتِ وبس",
+  "أيام جميلة",
+  "ضحكة من القلب",
+  "أحلى إحساس",
+  "ذكرى غالية",
+  "لسه في كتير",
+  "والأحلى لسه جاي ❤️"
+];
+
+const gallery = document.getElementById("gallery");
+
+/*
+  مكان وضع الصور:
+  ضع مسار كل صورة بين علامتي التنصيص.
+  مثال: "images/photo1.jpg"
+  أو رابط صورة مباشر يبدأ بـ https://
+
+  رتّب الصور من 1 إلى 20.
+*/
+const imagePaths = [
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (1).jpeg",   // الصورة 1
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (2).jpeg",   // الصورة 2
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (3).jpeg",   // الصورة 3
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (4).jpeg",   // الصورة 4
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (5).jpeg",   // الصورة 5
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (6).jpeg",   // الصورة 6
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (7).jpeg",   // الصورة 7
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (8).jpeg",   // الصورة 8
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (9).jpeg",   // الصورة 9
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (10).jpeg",  // الصورة 10
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (11).jpeg",  // الصورة 11
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (12).jpeg",  // الصورة 12
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (13).jpeg",  // الصورة 13
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (14).jpeg",  // الصورة 14
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (15).jpeg",  // الصورة 15
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (16).jpeg",  // الصورة 16
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (17).jpeg",  // الصورة 17
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (18).jpeg",  // الصورة 18
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (19).jpeg",  // الصورة 19
+  "WhatsApp Image 2026-10-31 at 8.46.14 PM (20).jpeg"   // الصورة 20
+];
+
+for(let i=1;i<=20;i++){
+  const card = document.createElement("div");
+  card.className = "photo-card";
+
+  const img = document.createElement("img");
+  img.src = imagePaths[i-1];
+  img.alt = captions[i-1];
+  img.loading = "lazy";
+
+  const caption = document.createElement("div");
+  caption.className = "caption";
+  caption.textContent = captions[i-1];
+
+  card.appendChild(img);
+  card.appendChild(caption);
+
+  card.addEventListener("click",()=>{
+    if(img.complete && img.naturalWidth > 0) openImage(img.src);
+  });
+
+  gallery.appendChild(card);
+}
+
+// تكبير الصور
+
+function openImage(src){
+  document.getElementById("largeImage").src = src;
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeImage(){
+  document.getElementById("lightbox").style.display = "none";
+}
+
+document.addEventListener("keydown",function(e){
+  if(e.key === "Escape") closeImage();
+});
+
+// الرسالة الأخيرة
+
+function showLove(){
+  document.getElementById("lastMessage").textContent =
+    "بحبك يا مونا، يا أجمل حكاية في حياتي ❤️";
+}
+
+// قلوب متحركة
+
+function startHearts(){
+
+  setInterval(()=>{
+
+    const heart = document.createElement("div");
+
+    heart.className = "floating";
+    heart.textContent = ["❤️","💗","💕","💖","🌸"][
+      Math.floor(Math.random()*5)
+    ];
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (15+Math.random()*25)+"px";
+    heart.style.animationDuration = (5+Math.random()*5)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),10000);
+
+  },650);
+
+}
+
+</script>
+
+</body>
+</html>
